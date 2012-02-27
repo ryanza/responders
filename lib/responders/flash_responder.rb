@@ -157,7 +157,7 @@ module Responders
 
       while slices.size > 0
         defaults << :"flash.#{slices.fill(controller.controller_name, -1).join('.')}.#{controller.action_name}.#{status}"
-        defaults << :"flash.#{slices.fill(:actions, -1).join('.')}.#{controller.action_name}.#{status}"
+        defaults << :"flash.#{slices.fill(:actions, -1).map(&:to_s).join('.')}.#{controller.action_name}.#{status}"
         slices.shift
       end
 
